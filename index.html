@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtue Capital Group | Private Equity Advisory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #FF0000;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-mid: #888888;
+            --gray-dark: #333333;
+            
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --space-xxl: 8rem;
+            
+            --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            
+            --grid-gap: 2rem;
+            --max-width: 1200px;
+            --border: 1px solid var(--black);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 65ch;
+        }
+
+        .text-large {
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .text-small {
+            font-size: 0.875rem;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            background: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-mark span {
+            color: var(--white);
+            font-weight: 900;
+            font-size: 1.125rem;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .header-location {
+            font-size: 0.75rem;
+            color: var(--gray-mid);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 72px;
+            border-bottom: var(--border);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: var(--space-xl);
+            align-items: center;
+            padding: var(--space-xxl) 0;
+        }
+
+        .hero-headline {
+            position: relative;
+        }
+
+        .hero-headline::before {
+            content: '';
+            position: absolute;
+            left: calc(-1 * var(--space-md));
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--red);
+        }
+
+        .hero-tagline {
+            font-size: 1.375rem;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-top: var(--space-lg);
+            max-width: 520px;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            padding-left: var(--space-lg);
+            border-left: var(--border);
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--red);
+        }
+
+        .hero-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-mid);
+            margin-top: var(--space-xs);
+        }
+
+        .hero-industries {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: var(--border);
+        }
+
+        .hero-industries-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-mid);
+            margin-bottom: var(--space-sm);
+        }
+
+        .hero-industries-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .industry-tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: var(--space-xs) var(--space-sm);
+            border: 1px solid var(--black);
+        }
+
+        /* Investment Focus */
+        .focus {
+            padding: var(--space-xxl) 0;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .focus-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray-mid);
+            margin-bottom: var(--space-sm);
+        }
+
+        .focus-intro {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .focus-item {
+            padding: var(--space-lg);
+            border-right: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .focus-item:last-child {
+            border-right: none;
+        }
+
+        .focus-item h3 {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .focus-item h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--red);
+        }
+
+        .focus-item p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9375rem;
+        }
+
+        .focus-bottom {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-top: none;
+        }
+
+        .ai-callout {
+            grid-column: span 3;
+            padding: var(--space-lg);
+            background: var(--red);
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .ai-callout h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .ai-callout p {
+            color: var(--white);
+            font-size: 1rem;
+            max-width: none;
+        }
+
+        /* Team */
+        .team {
+            padding: var(--space-xxl) 0;
+            border-bottom: var(--border);
+        }
+
+        .team-header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .team-member {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
+
+        .team-photo {
+            width: 160px;
+            height: 160px;
+            background: var(--gray-light);
+            border: var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: rgba(0,0,0,0.1);
+        }
+
+        .team-info h3 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: var(--space-xs);
+        }
+
+        .team-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .team-bio {
+            color: var(--gray-dark);
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        .team-bio strong {
+            color: var(--black);
+        }
+
+        /* Contact */
+        .contact {
+            padding: var(--space-xxl) 0;
+            background: var(--gray-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+        }
+
+        .contact-info h2 {
+            margin-bottom: var(--space-md);
+        }
+
+        .contact-info p {
+            color: var(--gray-dark);
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact-email {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            color: var(--red);
+        }
+
+        .contact-location {
+            margin-top: var(--space-sm);
+            font-size: 0.875rem;
+            color: var(--gray-mid);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: var(--space-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: var(--border);
+            background: var(--white);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--red);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border: 2px solid var(--black);
+            background: var(--black);
+            color: var(--white);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--red);
+            border-color: var(--red);
+        }
+
+        /* Footer */
+        .footer {
+            padding: var(--space-lg) 0;
+            border-top: var(--border);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .footer-logo .logo-mark {
+            width: 28px;
+            height: 28px;
+        }
+
+        .footer-logo .logo-mark span {
+            font-size: 0.875rem;
+        }
+
+        .footer-logo .logo-text {
+            font-size: 0.75rem;
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--gray-mid);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .hero-meta {
+                padding-left: 0;
+                border-left: none;
+                padding-top: var(--space-lg);
+                border-top: var(--border);
+            }
+
+            .focus-header {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .focus-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+            }
+
+            .focus-item:last-child {
+                border-bottom: none;
+            }
+
+            .ai-callout {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-sm);
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-location {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: var(--space-md);
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="#" class="logo">
+                    <div class="logo-mark"><span>V</span></div>
+                    <span class="logo-text">Virtue Capital Group</span>
+                </a>
+                <span class="header-location">Miami, FL</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-headline">
+                    <h1>We Build<br>Platforms That<br>Command<br>Premium<br>Multiples</h1>
+                    <p class="hero-tagline">A boutique private equity advisory firm acquiring and building lower middle-market companies. We bring operational expertise, financial discipline, permanent capital, and AI-first transformation to businesses ready for their next chapter.</p>
+                </div>
+                <div class="hero-meta">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">150+</span>
+                        <span class="hero-stat-label">Acquisitions Completed</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">50+</span>
+                        <span class="hero-stat-label">Years Combined Experience</span>
+                    </div>
+                    <div class="hero-industries">
+                        <span class="hero-industries-label">Track Record</span>
+                        <div class="hero-industries-list">
+                            <span class="industry-tag">Solid Waste</span>
+                            <span class="industry-tag">Gaming</span>
+                            <span class="industry-tag">Outdoor Advertising</span>
+                            <span class="industry-tag">Automotive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Focus -->
+    <section class="focus">
+        <div class="container">
+            <div class="focus-header">
+                <div>
+                    <span class="section-label">Investment Focus</span>
+                    <h2>Lower Middle-Market<br>Business Services</h2>
+                </div>
+                <p class="focus-intro">We acquire and operate companies in the $10M–$100M enterprise value range, with a current focus on business services in real estate-adjacent industries across Florida and Texas.</p>
+            </div>
+            <div class="focus-grid">
+                <div class="focus-item">
+                    <h3>Deal Sourcing</h3>
+                    <p>Proprietary origination through decades of operator relationships. We find opportunities others miss.</p>
+                </div>
+                <div class="focus-item">
+                    <h3>M&A Advisory</h3>
+                    <p>End-to-end transaction support from LOI through close. Structuring, diligence, and integration planning.</p>
+                </div>
+                <div class="focus-item">
+                    <h3>Capital Placement</h3>
+                    <p>Access to family offices, institutional LPs, and high-net-worth investors seeking direct deal flow.</p>
+                </div>
+            </div>
+            <div class="focus-bottom">
+                <div class="ai-callout">
+                    <h3>AI-First Operations</h3>
+                    <p>We deploy artificial intelligence across every acquisition: sales automation drives top-line growth while process automation expands margins. Technology transforms traditional businesses into modern platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team">
+        <div class="container">
+            <div class="team-header">
+                <span class="section-label">Principals</span>
+                <h2>Leadership</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">AS</div>
+                    <div class="team-info">
+                        <h3>Alex Stancioff</h3>
+                        <span class="team-title">Founder & Principal</span>
+                        <p class="team-bio">Serial entrepreneur and M&A venture builder. Director on M&A team that built and took public <strong>AutoNation</strong> and <strong>Republic Services</strong>—at Republic, acquired 250 companies generating $2B in annualized revenue. Co-founded <strong>Platform3</strong>, an integrated footwear business manufacturing 12M pairs annually for mass retail. Previously founder and COO, <strong>WebReach</strong>, $250M in annual sales. <strong>Georgetown MBA</strong>, Beta Gamma Sigma Honors Society.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">AG</div>
+                    <div class="team-info">
+                        <h3>Adolfo J. Guerrero</h3>
+                        <span class="team-title">Founder & Principal</span>
+                        <p class="team-bio">Twenty years in private equity, turnaround, and restructuring. Oversees <strong>$500M+ in PE investments</strong> for an international family office across real estate, aviation, hospitality, manufacturing, and financial services. Former <strong>KPMG Corporate Recovery</strong> and <strong>Dresdner Bank</strong>. Board member, Boys & Girls Club of Miami.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-label">Contact</span>
+                    <h2>Start a<br>Conversation</h2>
+                    <p>We partner with founders, family offices, and institutional investors seeking direct access to lower middle-market opportunities.</p>
+                    <a href="mailto:hello@virtuecapgroup.com" class="contact-email">hello@virtuecapgroup.com</a>
+                    <p class="contact-location">Miami, FL</p>
+                </div>
+                <form class="contact-form" action="mailto:hello@virtuecapgroup.com" method="post" enctype="text/plain">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <div class="logo-mark"><span>V</span></div>
+                    <span class="logo-text">Virtue Capital Group</span>
+                </div>
+                <span class="footer-copy">© 2025 Virtue Capital Group. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
