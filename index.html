@@ -368,15 +368,14 @@
         .team-photo {
             width: 160px;
             height: 160px;
-            background: var(--gray-light);
-            border: var(--border);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .team-info h3 {
@@ -700,7 +699,7 @@
             </div>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-photo">AS</div>
+                    <div class="team-photo"><img src="alex.jpg" alt="Alex Stancioff"></div>
                     <div class="team-info">
                         <h3>Alex Stancioff</h3>
                         <span class="team-title">Founder & Principal</span>
@@ -708,7 +707,7 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">AG</div>
+                    <div class="team-photo"><img src="adolfo.jpg" alt="Adolfo J. Guerrero"></div>
                     <div class="team-info">
                         <h3>Adolfo J. Guerrero</h3>
                         <span class="team-title">Founder & Principal</span>
